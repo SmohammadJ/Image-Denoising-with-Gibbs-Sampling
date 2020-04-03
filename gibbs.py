@@ -198,18 +198,18 @@ def run_q2():
   #Saving the denoised image for Q3
   global denoised_a
 
-  denoise_image("a_noise10.png.txt", initialization='rand',
-                logfile='log_rand')
-  denoise_image("a_noise10.png.txt", initialization='neg',
-                logfile='log_neg')
-  denoised_a = denoise_image("a_noise10.png.txt",
+  denoise_image("inputs/a_noise10.png.txt", initialization='rand',
+                logfile='outputs/log_rand')
+  denoise_image("inputs/a_noise10.png.txt", initialization='neg',
+                logfile='outputs/log_neg')
+  denoised_a = denoise_image("inputs/a_noise10.png.txt",
                                              initialization='same',
-                                               logfile='log_same')
+                                               logfile='outputs/log_same')
 
   # plot out the energy functions
-  plot_energy("log_rand")
-  plot_energy("log_neg")
-  plot_energy("log_same")
+  plot_energy("outputs/log_rand")
+  plot_energy("outputs/log_neg")
+  plot_energy("outputs/log_same")
 
 
 def run_q3():
@@ -218,19 +218,19 @@ def run_q3():
   report the errors between denoised images and original image
   '''
   global denoised_b
-  denoised_b = denoise_image("b_noise10.png.txt",
+  denoised_b = denoise_image("inputs/b_noise10.png.txt",
                                              initialization='same',
                                              logfile=None)
-  orig_img_a = read_txt_file("a.png.txt")
+  orig_img_a = read_txt_file("inputs/a.png.txt")
   orig_img_a = .5 * (1 - orig_img_a)
-  orig_img_b = read_txt_file("b.png.txt")
+  orig_img_b = read_txt_file("inputs/b.png.txt")
   orig_img_b = .5 * (1 - orig_img_b)
 
   # save denoised images and original image to png figures
-  convert_to_png(denoised_b, "denoised_b")
-  convert_to_png(denoised_a, "denoised_a")
-  convert_to_png(orig_img_b, "orig_img_b")
-  convert_to_png(orig_img_a, "orig_img_a")
+  convert_to_png(denoised_b, "outputs/denoised_b")
+  convert_to_png(denoised_a, "outputs/denoised_a")
+  convert_to_png(orig_img_b, "outputs/orig_img_b")
+  convert_to_png(orig_img_a, "outputs/orig_img_a")
 
   N, M = orig_img_a.shape
   print("restoration error for image %s : %s" %
