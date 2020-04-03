@@ -1,9 +1,3 @@
-# CMPT 727 PA2
-# Gibbs sampling algorithm to denoise an image
-# Author : Gunaa AV, Isaac Caswell
-# Edits : Heng Liu
-# Date : 3/1/2020
-
 import math
 import copy
 import random
@@ -98,30 +92,15 @@ def sampling(filename, initialization='same', logfile=None):
 
 def denoise_image(filename, initialization='rand', logfile=None):
   '''
-   TODO
-   Do Gibbs sampling and compute the energy of each assignment for the image
+   Doing Gibbs sampling and computing the energy of each assignment for the image
    specified in filename.
    It should run MAX_BURNS iterations of burn in and then
    MAX_SAMPLES iterations for collecting samples.
-
-   It is highly recommended to break the implementation in separate functions.
-   And only use this function as a wrapper function.
 
    filename: file name of image in txt
    initialization: 'same' or 'neg' or 'rand'
    logfile: the file name that stores the energy log (will use for plotting
        later) look at the explanation of plot_energy to see detail
-
-   For Q2:
-    A log file with file name taken from the value of logfile should be created
-   For Q3:
-   return value: denoised
-       denoised: a 2d-array with the same size of the image, the value of each entry
-           should be either 0(black) or 1(white).
-         This value is calculated based on the posterior probability of that being 1 (estimated by the Gibbs
-           sampler).
-
-
   '''
 
   posterior = sampling(filename, initialization, logfile=logfile)
@@ -265,13 +244,6 @@ def run_q3():
 
 
 if __name__ == "__main__":
-  '''
-      TODO modify or use run_q2() and run_q3() to
-      run your implementation for this assignment.
-
-  run_q2()
-  run_q3()
-  '''
-
+  
   run_q2()
   run_q3()
